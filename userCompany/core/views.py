@@ -190,4 +190,3 @@ class UpdateInterestAPIView(UpdateAPIView):
 class DeleteInterestAPIView(DestroyAPIView):
     queryset = Interest.objects.all()
     serializer_class = InterestSerializer
-
