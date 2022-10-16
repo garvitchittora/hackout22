@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VideoFragment">
+
+    <com.google.android.exoplayer2.ui.StyledPlayerView
+        android:id="@+id/player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:show_buffering="when_playing"
+        app:show_shuffle_button="false"
+        app:surface_type="surface_view" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/player_view"
+        app:layout_constraintEnd_toEndOf="@+id/player_view"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/player_view"
+        app:layout_constraintBottom_toTopOf="@+id/tvCity"
+        >
+
+        <com.like.LikeButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:anim_scale_factor="0.5"
+            android:padding="8dp"
+            app:circle_end_color="@color/colorAccent"
+            app:circle_start_color="@color/colorPrimary"
+            app:dots_primary_color="@color/colorAccent"
+            app:dots_secondary_color="@color/colorPrimary"
+            app:icon_size="24dp"
+            app:icon_type="heart"
+            app:is_enabled="true"
+            app:like_drawable="@drawable/ic_heart_on"
+            app:liked="false"
+            app:unlike_drawable="@drawable/ic_heart_off" />
+        <TextView
+            android:id="@+id/likeCnt"
+            android:fontFamily="@font/montserratmedium"
+            android:text="734"
+            android:padding="8dp"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageView
+            android:id="@+id/send"
+            android:padding="8dp"
+            android:src="@drawable/ic_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/montserratmedium"
+        android:padding="8dp"
+        android:text="Rishikesh"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:translationZ="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvDesciption"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBook"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Book"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCity"
+        app:layout_constraintStart_toEndOf="@+id/tvCity"
+        app:layout_constraintTop_toTopOf="@+id/tvCity" />
+
+    <TextView
+        android:id="@+id/tvDesciption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserratmedium"
+        android:padding="8dp"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a"
+        android:textAlignment="textStart"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/player_view"
+        app:layout_constraintEnd_toEndOf="@+id/player_view"
+        app:layout_constraintStart_toStartOf="@+id/player_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
