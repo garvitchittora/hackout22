@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "505544910024",
+    "project_id": "socialout-6d616",
+    "storage_bucket": "socialout-6d616.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505544910024:android:212d6f0c7f6193ec46b1fd",
+        "android_client_info": {
+          "package_name": "com.example.socialout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505544910024-qr12q2j6sgdrl72f0liao4ssal9plcmq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU_sEBoFgDt8N4p27dxRi-83mSElsFmPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505544910024-qr12q2j6sgdrl72f0liao4ssal9plcmq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

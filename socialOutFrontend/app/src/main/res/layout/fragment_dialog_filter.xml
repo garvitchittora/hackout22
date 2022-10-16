@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="32dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/cityTag"
+        android:text="City"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/montserratmedium"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/city"
+        android:hint="Enter City..."
+        android:fontFamily="@font/montserratmedium"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/cityTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/stTag"
+        android:text="Start Date"
+        android:fontFamily="@font/montserratmedium"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/startDate"
+        android:text="12/12/2022"
+        android:fontFamily="@font/montserratmedium"
+        app:layout_constraintTop_toBottomOf="@+id/stTag"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:text="--"
+        android:fontFamily="@font/montserratmedium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/stTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/endDate"
+        android:text="16/12/2022"
+        android:fontFamily="@font/montserratmedium"
+        app:layout_constraintTop_toBottomOf="@+id/endTag"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+    <TextView
+        android:id="@+id/endTag"
+        android:text="End Date"
+        android:fontFamily="@font/montserratmedium"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
