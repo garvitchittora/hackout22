@@ -1,6 +1,6 @@
 from django.db import models
 import requests
-from config import BASE_URL
+from .config import BASE_URL
 
 # query builder to call company's data api
 class QueryBuilder:
@@ -23,3 +23,16 @@ class QueryBuilder:
             final_url = self.url + self.table
             response = requests.post(final_url, self.attributes)
             return response.json()
+
+class Analytics(models.Model):
+    type = models.CharField(max_length = 50)
+    count = models.IntegerField(default = 0)
+    reference = models.CharField(max_length = 50)
+
+    class Meta:
+        db_table = "Analytics"
+        verbose_name_plural = "Analytics"
+
+    def __str__(self):
+        return self.reference + " - " + self.type
+

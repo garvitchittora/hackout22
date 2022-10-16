@@ -2,7 +2,7 @@ from .models import QueryBuilder
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from datetime import date
-from config import *
+from .config import *
 
 # search experiences
 @api_view(['GET'])

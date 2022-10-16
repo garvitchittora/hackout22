@@ -62,3 +62,10 @@ POST_COMMENT = 'comment'
 # GET Stories
 USER_WITH_STORIES = 'userwithstories'
 # user_id: user id of user whose storied we need to get
+
+
+ANALYTICS = {
+    'comment/': 'commented',
+    'interest/': 'interested',
+    'experience/': 'viewed',
+}

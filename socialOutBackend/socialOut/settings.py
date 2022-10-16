@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'core.middleware.AuthMiddleware',
+    'core.middleware.AnalyticsMiddleware',
 ]
 
 ROOT_URLCONF = 'SocialOut.urls'
