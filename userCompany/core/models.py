@@ -28,6 +28,7 @@ class Experience(models.Model):
     avg_rating = models.FloatField()
     count_of_rating = models.IntegerField()
     video_url = models.CharField(max_length = 500, default = "")
+    tgid = models.IntegerField(null = True)
 
     class Meta:
         db_table = "Experience"
@@ -66,7 +67,7 @@ class User(models.Model):
     email = models.EmailField()
     image = models.CharField(max_length = 500, default = "")
     level = models.IntegerField(default=0)
-    following = models.ManyToManyField('self', default=None)
+    following = models.ManyToManyField('self', symmetrical=False, blank=True)
 
     class Meta:
         db_table = "User"
@@ -112,7 +113,7 @@ class Comments(models.Model):
         verbose_name_plural = "Comments"
 
     def __str__(self):
-        return self.user.name + " - " + self.experience.id
+        return self.user.name + " - " + str(self.experience.id)
 
 
 class Notifications(models.Model):
@@ -126,5 +127,3 @@ class Notifications(models.Model):
 
     def __str__(self):
         return self.user.name + " " + str(self.timestamp) 
-
-

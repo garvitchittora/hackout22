@@ -1,5 +1,5 @@
 """
-ASGI config for socialOut project.
+ASGI config for SocialOut project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'socialOut.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SocialOut.settings')
 
 application = get_asgi_application()

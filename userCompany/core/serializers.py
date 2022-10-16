@@ -33,20 +33,20 @@ class UserSerializer(serializers.ModelSerializer):
 
 class InterestSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Interest
         fields = '__all__'
 
 class ViewedInterestSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = ViewedInterest
         fields = '__all__'
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Comments
         fields = '__all__'
 
 class NotificationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Notifications
         fields = '__all__'

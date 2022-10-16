@@ -64,7 +64,6 @@ class ListExperienceAPIView(ListAPIView):
         city = self.request.query_params.get('city', None)
         start_date = self.request.query_params.get('start_date', date.today())
         end_date = self.request.query_params.get('end_date', None)
-
         inventory_result = Inventory.objects.filter(slot__gt=0, date__gte=start_date)
 
         if end_date:
@@ -81,7 +80,7 @@ class ListExperienceAPIView(ListAPIView):
         # convert set to list
         experience = list(experience)
 
-        return experience.order_by('id')
+        return experience
 
 class CreateExperienceAPIView(CreateAPIView):
     queryset = Experience.objects.all()
@@ -130,26 +129,27 @@ class ListUserAPIView(ListAPIView):
 
         if 'email' in self.request.query_params:
             email = self.request.query_params['email']
-            queryset = queryset.get(email=email)
+            queryset = queryset.filter(email=email)
             return queryset
 
         if 'user_id' in self.request.query_params:
             user_id = self.request.query_params['user_id']
-            queryset = queryset.get(id=user_id)
+            queryset = queryset.filter(id=user_id)
             return queryset
 
         if 'prefix' in self.request.query_params:
             prefix = self.request.query_params['prefix']
             user_id = self.request.query_params['user_id']
-
             users = queryset.filter(name__istartswith=prefix).order_by('level')
-            active_user = queryset.get(id = user_id)
-            if active_user:
-                for u in users:
-                    if u in active_user.following.all():
-                        u.following_status = True
-                    else:
-                        u.following_status = False
+
+            if user_id:
+                active_user = queryset.get(id = user_id)
+                if active_user:
+                    for u in users:
+                        if u in active_user.following.all():
+                            u.following_status = True
+                        else:
+                            u.following_status = False
             
             return users
 
@@ -177,7 +177,8 @@ class ListInterestAPIView(ListAPIView):
         if 'user_id' in self.request.query_params:
             user_id = self.request.query_params['user_id']
             queryset = queryset.filter(user__id=user_id)
-        return queryset.order_by('id')
+            return queryset.order_by('id')
+        return []
 
 class CreateInterestAPIView(CreateAPIView):
     queryset = Country.objects.all()
