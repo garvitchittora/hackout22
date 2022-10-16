@@ -2,6 +2,7 @@ from .models import QueryBuilder
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from datetime import date
+from config import *
 
 # search experiences
 @api_view(['GET'])
@@ -24,7 +25,7 @@ def get_experiences(request):
         params['end_date'] = end_date
 
     # instantiate new QueryBuilder and execute
-    query = QueryBuilder("experience", params, "get")
+    query = QueryBuilder(GET_EXPERIENCE, params, "get")
     result = query.execute()
 
     return JsonResponse({'data': result, 'keyword': {
@@ -45,7 +46,7 @@ def add_interest(request):
     params['user_id'] = user_id
 
     # instantiate new QueryBuilder for post and execute
-    query = QueryBuilder("interest", params, "post")
+    query = QueryBuilder(POST_INTEREST, params, "post")
     result = query.execute()
 
     return JsonResponse({'data': result})
@@ -63,7 +64,7 @@ def get_interests(request):
         return JsonResponse({'error': 'User id missing'}, status=400)
 
     # instantiate new QueryBuilder and execute
-    query = QueryBuilder("get-interest", params, "get")
+    query = QueryBuilder(GET_INTEREST, params, "get")
     result = query.execute()
 
     return JsonResponse({'data': result})
@@ -81,7 +82,7 @@ def search_users(request):
     params['user_id'] = user_id
 
     # instantiate new QueryBuilder and execute
-    query = QueryBuilder("get-user", params, "get")
+    query = QueryBuilder(GET_USER, params, "get")
     result = query.execute()
 
     return JsonResponse({'data': result})
@@ -94,7 +95,7 @@ def check_user(request):
     if not user:
         data = {'email': firebase_user.email, 'name': firebase_user.display_name, 'image': firebase_user.photo_url, 'level': 0}
         # instantiate new QueryBuilder for post and execute
-        query = QueryBuilder("user", data, "post")
+        query = QueryBuilder(POST_USER, data, "post")
         result = query.execute()
         return JsonResponse({'data': result})
     
@@ -108,7 +109,7 @@ def add_follower(request):
     if not following_id:
         return JsonResponse({'error': 'follower not found'}, status=404)
     
-    query = QueryBuilder("useraddfollow", {'following_id': following_id, 'user_id': user_id}, "post")
+    query = QueryBuilder(USER_ADD_FOLLOW, {'following_id': following_id, 'user_id': user_id}, "post")
     query.execute()
     
     return JsonResponse({'msg': 'success'})
@@ -120,7 +121,7 @@ def remove_follower(request):
     if not following_id:
         return JsonResponse({'error': 'follower not found'}, status=404)
     
-    query = QueryBuilder("userremfollow", {'following_id': following_id, 'user_id': user_id}, "post")
+    query = QueryBuilder(USER_REMOVE_FOLLOW, {'following_id': following_id, 'user_id': user_id}, "post")
     query.execute()
 
     return JsonResponse({'msg': 'success'})
@@ -134,7 +135,7 @@ def add_comment(request):
 
     if comment_text and experience_id:
         data = {'user_id': user_id, 'experience_id': experience_id, 'comment_text': comment_text}
-        query = QueryBuilder("comment", data, "post")
+        query = QueryBuilder(POST_COMMENT, data, "post")
         result = query.execute()
         return JsonResponse({'data': result})
     else:
@@ -144,7 +145,7 @@ def add_comment(request):
 def get_comments(request):
     experience_id = request.data.get('experience_id')
 
-    query = QueryBuilder("get-comment", {'experience_id': experience_id}, "get")
+    query = QueryBuilder(GET_COMMENT, {'experience_id': experience_id}, "get")
     result = query.execute()
 
     return JsonResponse({'data': result})
@@ -153,7 +154,7 @@ def get_comments(request):
 def get_users_with_stories(request):
     user_id = request.user['id']
 
-    query = QueryBuilder("userwithstories", {'user_id': user_id}, "get")
+    query = QueryBuilder(USER_WITH_STORIES, {'user_id': user_id}, "get")
     result = query.execute()
 
     return JsonResponse({'data': result})

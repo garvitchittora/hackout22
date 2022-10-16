@@ -1,10 +1,11 @@
 from django.db import models
 import requests
+from config import BASE_URL
 
 # query builder to call company's data api
 class QueryBuilder:
     def __init__(self, table, attributes, query_type):
-        self.url = "https://localhost:8001/api/v1/"
+        self.url = BASE_URL
         self.table = table
         self.attributes = attributes
         self.type = query_type # get, post
